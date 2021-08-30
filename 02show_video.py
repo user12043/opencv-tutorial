@@ -1,3 +1,9 @@
+#! /usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# created by user12043 on 21.07.2021 - 21:35
+# part of project opencv-tutorial
+
 import numpy as np
 import cv2 as cv
 
