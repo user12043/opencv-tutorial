@@ -6,7 +6,6 @@
 
 # https://docs.opencv.org/4.5.3/da/d6e/tutorial_py_geometric_transformations.html
 import math
-
 import numpy as np
 import cv2 as cv
 
@@ -48,6 +47,22 @@ M = cv.getRotationMatrix2D(center, angle, scale)
 cv.imshow("rotate2", cv.warpAffine(img, M, (width, height)))
 cv.waitKey(0)
 
+# 3. Affline Transformation
+rows, cols, ch = img.shape
+
+# Determine points
+pts_in_input = [[100, 100], [300, 100], [100, 250]]
+pts_in_output = [[100, 200], [300, 100], [150, 300]]
+
+# Mark points in input
+for point in pts_in_input:
+    img = cv.circle(img, point, 0, (0, 0, 255), 4)
+
+M = cv.getAffineTransform(np.float32(pts_in_input), np.float32(pts_in_output))
+dst = cv.warpAffine(img, M, (cols, rows))
+cv.imshow("affline", dst)
+
+cv.waitKey(0)
 cv.destroyAllWindows()
 
 # continue...

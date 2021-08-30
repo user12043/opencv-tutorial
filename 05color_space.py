@@ -14,6 +14,11 @@ cap = cv.VideoCapture(0)
 while (1):
     # Take each frame
     _, frame = cap.read()
+
+    # Resize if big
+    if frame.shape[:2] > (360, 480):
+        frame = cv.resize(frame, (480, 360), interpolation=cv.INTER_AREA)
+
     # Convert BGR to HSV
     hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
 
