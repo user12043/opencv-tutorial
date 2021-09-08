@@ -63,6 +63,20 @@ dst = cv.warpAffine(img, M, (cols, rows))
 cv.imshow("affline", dst)
 
 cv.waitKey(0)
-cv.destroyAllWindows()
 
-# continue...
+# 4. Perspective Transformation
+img = cv.imread("img/kanban.png")
+rows, cols, ch = img.shape
+
+pts_in_input = [[349, 559], [1747, 529], [217, 1147], [1901, 1125]]
+pts_in_output = [[50, 50], [1734, 50], [50, 638], [1734, 638]]
+
+for point in pts_in_input:
+    cv.circle(img, point, 5, (0, 255, 0), -1)
+
+M = cv.getPerspectiveTransform(np.float32(pts_in_input), np.float32(pts_in_output))
+
+cv.imshow("perspective", cv.warpPerspective(img, M, (1800, 700)))
+
+cv.waitKey(0)
+cv.destroyAllWindows()
