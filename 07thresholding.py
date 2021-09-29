@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# created by user12043 on 14.09.021 - 16:10
+# created by user12043 on 14.09.2021 - 16:10
 # part of project opencv-tutorial
 
 # https://docs.opencv.org/4.5.3/d7/d4d/tutorial_py_thresholding.html
